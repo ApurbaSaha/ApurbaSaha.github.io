@@ -18,10 +18,10 @@
 function deviceOrientationListener(event) {
      var c=document.getElementById("myCanvas");
 	 var d=document.getElementById("container");
-	 c.height=window.innerHeight-20;
-	 d.style.height=window.innerHeight-20;
-	 c.width=window.innerWidth/2-20;
-	 d.style.width=window.innerWidth/2-20;
+	 c.height=Math.round(window.innerHeight-20);
+	 d.style.height=Math.round(window.innerHeight-20);
+	 c.width=Math.round(window.innerWidth/2-20);
+	 d.style.width=Math.round(window.innerWidth/2-20);
 	 var orientation="portrait";
 	 var speed=0;
 	 var disfactor=c.width/35;
@@ -29,14 +29,14 @@ function deviceOrientationListener(event) {
      var ctx=c.getContext("2d");
 	 ctx.font = "30px Arial";
      ctx.clearRect(0,0, c.width, c.height);
-	if(orientation=="portrait")	 speed= Math.round(event.beta)*disfactor;
-	if(orientation=="landscape") speed= Math.round(event.gamma)*disfactor;
+	if(orientation=="portrait")	 speed= Math.round(event.beta*disfactor);
+	if(orientation=="landscape") speed= Math.round(event.gamma*disfactor);
 	if(speed<0) ctx.fillStyle="#66CC33";
 	if(speed>0) ctx.fillStyle="#FF0000";
-	if(speed>0)	ctx.fillText("Speed:" + speed,20,c.height/2-speed);
-	if(speed<0) ctx.fillText("Speed:" + speed,20,c.height/2-speed+20);
+	if(speed>0)	ctx.fillText("Speed:" + speed,20,Math.round(c.height/2)-speed);
+	if(speed<0) ctx.fillText("Speed:" + speed,20,Math.round(c.height/2)-speed+20);
 	ctx.beginPath();
-	ctx.fillRect(5, c.height/2, c.width-10, speed*-1);
+	ctx.fillRect(5, Math.round(c.height/2), c.width-10, speed*-1);
 }
 
 function deviceOrientationListenerOld(event) {
