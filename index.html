@@ -2,8 +2,8 @@
 <html>
 <style>
 #container {
-  width: 200px;
-  height:540px;
+  <!--width: 200px;
+  height:540px;-->
   border: 1px solid red;
   margin: 0px auto;
   text-align: center;
@@ -18,12 +18,13 @@
 function deviceOrientationListener(event) {
      var c=document.getElementById("myCanvas");
 	 var d=document.getElementById("container");
-	 c.height=window.innerHeight;
-	 d.height=window.innerHeight;
-	 c.width=window.innerWidth/2;
-	 d.width=window.innerWidth/2;
+	 c.height=window.innerHeight-20;
+	 d.style.height=window.innerHeight-20;
+	 c.width=window.innerWidth/2-20;
+	 d.style.width=window.innerWidth/2-20;
 	 var orientation="portrait";
 	 var speed=0;
+	 var factor=54
      if(window.orientation == -90 || window.orientation == 90) orientation = "landscape";
      var ctx=c.getContext("2d");
 	 ctx.font = "30px Arial";
