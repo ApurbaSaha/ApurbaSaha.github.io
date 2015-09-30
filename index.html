@@ -17,6 +17,11 @@
 <script>
 function deviceOrientationListener(event) {
      var c=document.getElementById("myCanvas");
+	 var d=document.getElementById("container");
+	 c.height=window.innerHeight;
+	 d.height=window.innerHeight;
+	 c.width=window.innerWidth/2;
+	 d.width=window.innerWidth/2;
 	 var orientation="portrait";
 	 var speed=0;
      if(window.orientation == -90 || window.orientation == 90) orientation = "landscape";
